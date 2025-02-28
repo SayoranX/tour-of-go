@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
-	a, err := fmt.Println("Hello Smoky Panda")
-	if err != nil {
-		panic(err)
-	}
+	fmt.Println("Hello Smoky Panda")
+	fmt.Println("The time is", time.Now())
+	fmt.Println("My favorite number is", rand.Intn(10))
+	fmt.Println("My favorite number is", rand.Int())
 
-	fmt.Println("var A=", a)
 }
