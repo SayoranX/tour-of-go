@@ -19,24 +19,38 @@ func main() {
 	fmt.Println(math.Pi)
 	fmt.Println(add(42, 15))
 
-	x := 41
-	y := 13
-	c := add(x, y)
-	fmt.Println(c)
+	//x := 41
+	//y := 13
+	//c := add(x, y)
+	//fmt.Println(c)
 
-	a, b := swap("Smoky", "\nPanda") // задание с функцией swap вывод 2 строк
-	fmt.Println(a, b)
+	//a, b := swap("Smoky", "\nPanda") // задание с функцией swap вывод 2 строк
+	//fmt.Println(a, b)
 
 	fmt.Println(split(20)) // задание с функцией split
 
-	var i, j int = 2, 4
-	v, python, java := false, true, "yes!"
+	//var i, j int = 2, 4
+	//v, python, java := false, true, "yes!"
 
-	fmt.Println(i, j, v, python, java) //  присвоение данных переменным влючая типы bool
+	//fmt.Println(i, j, v, python, java) //  присвоение данных переменным влючая типы bool
 
 	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)    // вывод типов данных %T выводит тип данных, %v значение переменной
 	fmt.Printf("Type: %T Value %v\n", MaxInt, MaxInt) // вывод типов данных %T выводит тип данных, %v значение переменной
 	fmt.Printf("Type: %T Value %v\n", z, z)           // вывод типов данных %T выводит тип данных, %v значение переменной
+
+	//var i int
+	//var f float64
+	//var b bool
+	//var s string
+	//fmt.Printf("%v %v %v %q\n", i, f, b, s) // вывод значений переменных, %q используется для вывода строкового типа
+
+	var x, y int = 3, 4                           // преобразование переменных из float в int
+	var f float64 = math.Sqrt(float64(x*x + y*y)) // преобразование переменных из float в int
+	var z uint = uint(f)                          // преобразование переменных из float в int
+	fmt.Println(x, y, z)                          // преобразование переменных из float в int
+
+	v := 42                            //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
+	fmt.Printf("v is of type %T\n", v) //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
 }
 func add(x, y int) int {
 	c := x + y
