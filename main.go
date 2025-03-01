@@ -34,9 +34,9 @@ func main() {
 
 	fmt.Println(i, j, v, python, java) //  присвоение данных переменным влючая типы bool
 
-	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
-	fmt.Printf("Type: %T Value %v\n", MaxInt, MaxInt)
-	fmt.Printf("Type: %T Value %v\n", z, z)
+	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)    // вывод типов данных %T выводит тип данных, %v значение переменной
+	fmt.Printf("Type: %T Value %v\n", MaxInt, MaxInt) // вывод типов данных %T выводит тип данных, %v значение переменной
+	fmt.Printf("Type: %T Value %v\n", z, z)           // вывод типов данных %T выводит тип данных, %v значение переменной
 }
 func add(x, y int) int {
 	c := x + y
@@ -53,7 +53,7 @@ func split(sum int) (x, y int) {
 }
 
 var (
-	ToBe   bool       = true
+	ToBe   int        = 10
 	MaxInt uint32     = 1<<32 - 1
 	z      complex128 = cmplx.Sqrt(-5 + 12i)
 )
