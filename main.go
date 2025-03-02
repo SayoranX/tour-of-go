@@ -65,12 +65,17 @@ func main() {
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
 
-	sum := 0
-	for i := 0; i < 10; i++ {
-		sum += i
-	}
-	fmt.Println(sum)
+	//sum := 0                  //цикл for
+	//for i := 0; i < 10; i++ { //цикл for
+	//	sum += i //цикл for
+	//}
+	//fmt.Println(sum) //цикл for
 
+	sum := 1         // структура типа while
+	for sum < 1000 { // структура типа while
+		sum += sum // структура типа while
+	}
+	fmt.Println(sum) // структура типа while
 }
 func add(x, y int) int {
 	c := x + y
