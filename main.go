@@ -16,8 +16,8 @@ func main() {
 	//fmt.Println("My favorite \n number")
 	//fmt.Printf("Now you have %g problems gfhfnh bgfn %g hkhjkhjk dhgdgd %d dhhhnfj.\n", math.Sqrt(7), 25, math.Sqrt(7))
 	//fmt.Printf("Now you have %g problems gfhfnh bgfn %d hkhjkhjk dhgdgd %g dhhhnfj.\n", math.Sqrt(7), rand.Intn(25), math.Sqrt(7))
-	fmt.Println(math.Pi)
-	fmt.Println(add(42, 15))
+	//fmt.Println(math.Pi)
+	//fmt.Println(add(42, 15))
 
 	//x := 41
 	//y := 13
@@ -27,16 +27,16 @@ func main() {
 	//a, b := swap("Smoky", "\nPanda") // задание с функцией swap вывод 2 строк
 	//fmt.Println(a, b)
 
-	fmt.Println(split(20)) // задание с функцией split
+	//fmt.Println(split(20)) // задание с функцией split
 
 	//var i, j int = 2, 4
 	//v, python, java := false, true, "yes!"
 
 	//fmt.Println(i, j, v, python, java) //  присвоение данных переменным влючая типы bool
 
-	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)    // вывод типов данных %T выводит тип данных, %v значение переменной
-	fmt.Printf("Type: %T Value %v\n", MaxInt, MaxInt) // вывод типов данных %T выводит тип данных, %v значение переменной
-	fmt.Printf("Type: %T Value %v\n", z, z)           // вывод типов данных %T выводит тип данных, %v значение переменной
+	//fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)    // вывод типов данных %T выводит тип данных, %v значение переменной
+	//fmt.Printf("Type: %T Value %v\n", MaxInt, MaxInt) // вывод типов данных %T выводит тип данных, %v значение переменной
+	//fmt.Printf("Type: %T Value %v\n", z, z)           // вывод типов данных %T выводит тип данных, %v значение переменной
 
 	//var i int
 	//var f float64
@@ -52,14 +52,25 @@ func main() {
 	v := 42                            //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
 	fmt.Printf("v is of type %T\n", v) //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
 
-	const World = "Мир" // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
+	//const World = "Мир" // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
+	//
+	//const Log = true                      // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
+	//fmt.Println("Hello", World)           // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
+	//fmt.Println("Happy", Pi, "Zdes", Log) // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
+	//
+	//const Truth = false
+	//fmt.Println("Go rules?", Truth)
 
-	const Log = true                      // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
-	fmt.Println("Hello", World)           // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
-	fmt.Println("Happy", Pi, "Zdes", Log) // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
+	fmt.Println(needInt(Small))
+	fmt.Println(needFloat(Small))
+	fmt.Println(needFloat(Big))
 
-	const Truth = false
-	fmt.Println("Go rules?", Truth)
+	sum := 0
+	for i := 0; i < 10; i++ {
+		sum += i
+	}
+	fmt.Println(sum)
+
 }
 func add(x, y int) int {
 	c := x + y
@@ -82,3 +93,12 @@ var (
 )
 
 const Pi = 3.14
+const (
+	Big   = 1 << 100
+	Small = Big >> 99
+)
+
+func needInt(x int) int { return x*10 + 1 }
+func needFloat(x float64) float64 {
+	return x * 0.1
+}
