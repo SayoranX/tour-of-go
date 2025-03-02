@@ -71,11 +71,17 @@ func main() {
 	//}
 	//fmt.Println(sum) //цикл for
 
-	sum := 1         // структура типа while
-	for sum < 1000 { // структура типа while
-		sum += sum // структура типа while
-	}
-	fmt.Println(sum) // структура типа while
+	//sum := 1         // структура типа while
+	//for sum < 1000 { // структура типа while
+	//	sum += sum // структура типа while
+	//}
+	//fmt.Println(sum) // структура типа while
+
+	//for { 	 //бесконечный цикл, если тело цикла отсутствует
+	//}
+
+	fmt.Println(sqrt(-2), sqrt(3), sqrt(-4), sqrt(5))
+
 }
 func add(x, y int) int {
 	c := x + y
@@ -106,4 +112,11 @@ const (
 func needInt(x int) int { return x*10 + 1 }
 func needFloat(x float64) float64 {
 	return x * 0.1
+}
+
+func sqrt(x float64) string {
+	if x < 0 {
+		return sqrt(-x) + "i"
+	}
+	return fmt.Sprint(math.Sqrt(x))
 }
