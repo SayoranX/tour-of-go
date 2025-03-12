@@ -61,7 +61,7 @@ func main() {
 	//const Truth = false
 	//fmt.Println("Go rules?", Truth)
 
-	fmt.Println(needInt(Small))
+	fmt.Println(needInt(Small)) //
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
 
@@ -82,6 +82,7 @@ func main() {
 
 	fmt.Println(sqrt(-2), sqrt(3), sqrt(-4), sqrt(5))
 
+	fmt.Println(pow(3, 2, 10), pow(2, 3, 20))
 }
 func add(x, y int) int {
 	c := x + y
@@ -105,8 +106,8 @@ var (
 
 const Pi = 3.14
 const (
-	Big   = 1 << 100
-	Small = Big >> 99
+	Big   = 1 << 100  // сдвиг влево на 1 бит на 100 нулей
+	Small = Big >> 99 // сдвиг вправо на 99 нулей
 )
 
 func needInt(x int) int { return x*10 + 1 }
@@ -119,4 +120,12 @@ func sqrt(x float64) string {
 		return sqrt(-x) + "i"
 	}
 	return fmt.Sprint(math.Sqrt(x))
+}
+
+func pow(x, n, lim float64) float64 {
+	v := math.Pow(x, n)
+	if v < lim {
+		return v
+	}
+	return lim
 }
