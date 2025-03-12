@@ -82,7 +82,7 @@ func main() {
 
 	fmt.Println(sqrt(-2), sqrt(3), sqrt(-4), sqrt(5))
 
-	fmt.Println(pow(3, 2, 10), pow(2, 3, 20))
+	fmt.Println(pow(4, 2, 10), pow(3, 3, 20))
 }
 func add(x, y int) int {
 	c := x + y
@@ -126,6 +126,8 @@ func pow(x, n, lim float64) float64 {
 	v := math.Pow(x, n)
 	if v < lim {
 		return v
+	} else {
+		fmt.Printf("%g > %g\n", v, lim) // вывод v и lim через %g. %g используется для типа float
 	}
 	return lim
 }
