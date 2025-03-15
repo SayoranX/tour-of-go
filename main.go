@@ -88,7 +88,17 @@ func main() {
 	fmt.Println("Наша функция: ", Sqrt(3))
 	fmt.Println("Функция квадратного корня: ", math.Sqrt(3))
 
-	fmt
+	fmt.Println("Go runs on ") // вывод текущей операционной системы, OS переменная которая работает только внутри switch,используется доля кросс-платформенного кода, где поведение зависит от ОС
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X. ")
+	case "linux":
+		fmt.Println("Linux. ")
+	default:
+		// freebsd, open bsd
+		// plan9, Windows...
+		fmt.Printf("%s.\n", os) // %s выводит строковый тип данных
+	}
 }
 
 //func add(x, y int) int {
