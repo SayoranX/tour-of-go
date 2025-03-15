@@ -49,7 +49,6 @@ func main() {
 	//var f float64 = math.Sqrt(float64(x*x + y*y)) // преобразование переменных из float в int
 	//var z uint = uint(f)                          // преобразование переменных из float в int
 	//fmt.Println(x, y, z)                          // преобразование переменных из float в int
-	//
 	//v := 42                            //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
 	//fmt.Printf("v is of type %T\n", v) //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
 
@@ -99,18 +98,28 @@ func main() {
 	//	// plan9, Windows...
 	//	fmt.Printf("%s.\n", os) // %s выводит строковый тип данных
 	//}
-	fmt.Println("When's Saturday?") // выводит сообщение сколько дней относительно сегодня до указанного дня
-	today := time.Now().Weekday()
-	fmt.Println(today)
-	switch time.Tuesday {
-	case today + 0:
-		fmt.Println("Today. ")
-	case today + 1:
-		fmt.Println("Tomorrow. ")
-	case today + 2:
-		fmt.Println("In two days. ")
+	//fmt.Println("When's Saturday?") // выводит сообщение сколько дней относительно сегодня до указанного
+	//today := time.Now().Weekday()
+	//fmt.Println(today)
+	//switch time.Tuesday {
+	//case today + 0:
+	//	fmt.Println("Today. ")
+	//case today + 1:
+	//	fmt.Println("Tomorrow. ")
+	//case today + 2:
+	//	fmt.Println("In two days. ")
+	//default:
+	//	fmt.Println("Too far away. ")
+	//}
+	t := time.Now()
+	fmt.Println(t)
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon!")
 	default:
-		fmt.Println("Too far away. ")
+		fmt.Println("Good evening!")
 	}
 }
 
