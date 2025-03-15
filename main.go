@@ -3,8 +3,9 @@ package main
 import (
 	"fmt"
 	"math"
+	"runtime"
 	//"math/rand"
-	"math/cmplx"
+	//"math/cmplx"
 )
 
 func main() {
@@ -44,13 +45,13 @@ func main() {
 	//var s string
 	//fmt.Printf("%v %v %v %q\n", i, f, b, s) // вывод значений переменных, %q используется для вывода строкового типа
 
-	var x, y int = 3, 4                           // преобразование переменных из float в int
-	var f float64 = math.Sqrt(float64(x*x + y*y)) // преобразование переменных из float в int
-	var z uint = uint(f)                          // преобразование переменных из float в int
-	fmt.Println(x, y, z)                          // преобразование переменных из float в int
-
-	v := 42                            //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
-	fmt.Printf("v is of type %T\n", v) //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
+	//var x, y int = 3, 4                           // преобразование переменных из float в int
+	//var f float64 = math.Sqrt(float64(x*x + y*y)) // преобразование переменных из float в int
+	//var z uint = uint(f)                          // преобразование переменных из float в int
+	//fmt.Println(x, y, z)                          // преобразование переменных из float в int
+	//
+	//v := 42                            //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
+	//fmt.Printf("v is of type %T\n", v) //%T выводит тип данных, его можно задать числом или указать через var, %T выведет тип указанного числа
 
 	//const World = "Мир" // Константы могут быть символьными, строковыми, булевыми или числовыми значениями. Константы нельзя объявлять с использованием синтаксиса :=.
 	//
@@ -61,9 +62,9 @@ func main() {
 	//const Truth = false
 	//fmt.Println("Go rules?", Truth)
 
-	fmt.Println(needInt(Small)) //
-	fmt.Println(needFloat(Small))
-	fmt.Println(needFloat(Big))
+	//fmt.Println(needInt(Small)) //
+	//fmt.Println(needFloat(Small))
+	//fmt.Println(needFloat(Big))
 
 	//sum := 0                  //цикл for
 	//for i := 0; i < 10; i++ { //цикл for
@@ -80,54 +81,74 @@ func main() {
 	//for { 	 //бесконечный цикл, если тело цикла отсутствует
 	//}
 
-	fmt.Println(sqrt(-2), sqrt(3), sqrt(-4), sqrt(5))
+	//fmt.Println(sqrt(-2), sqrt(3), sqrt(-4), sqrt(5))
+	//
+	//fmt.Println(pow(4, 2, 10), pow(3, 3, 20))
 
-	fmt.Println(pow(4, 2, 10), pow(3, 3, 20))
-}
-func add(x, y int) int {
-	c := x + y
-	return c
-}
-func swap(x, y string) (string, string) {
-	return x, y
+	fmt.Println("Наша функция: ", Sqrt(3))
+	fmt.Println("Функция квадратного корня: ", math.Sqrt(3))
+
+	fmt
 }
 
-func split(sum int) (x, y int) {
-	x = sum * 4 / 9
-	y = sum - x
-	return
-}
+//func add(x, y int) int {
+//	c := x + y
+//	return c
+//}
+//func swap(x, y string) (string, string) {
+//	return x, y
+//}
+//
+//func split(sum int) (x, y int) {
+//	x = sum * 4 / 9
+//	y = sum - x
+//	return
+//}
+//
+//var (
+//	ToBe   int        = 10
+//	MaxInt uint32     = 1<<32 - 1
+//	z      complex128 = cmplx.Sqrt(-5 + 12i)
+//)
+//
+//const Pi = 3.14
+//const (
+//	Big   = 1 << 100  // сдвиг влево на 1 бит на 100 нулей
+//	Small = Big >> 99 // сдвиг вправо на 99 нулей
+//)
+//
+//func needInt(x int) int { return x*10 + 1 }
+//func needFloat(x float64) float64 {
+//	return x * 0.1
+//}
 
-var (
-	ToBe   int        = 10
-	MaxInt uint32     = 1<<32 - 1
-	z      complex128 = cmplx.Sqrt(-5 + 12i)
-)
+//func sqrt(x float64) string {
+//	if x < 0 {
+//		return sqrt(-x) + "i"
+//	}
+//	return fmt.Sprint(math.Sqrt(x))
+//}
 
-const Pi = 3.14
-const (
-	Big   = 1 << 100  // сдвиг влево на 1 бит на 100 нулей
-	Small = Big >> 99 // сдвиг вправо на 99 нулей
-)
+//func pow(x, n, lim float64) float64 {
+//	v := math.Pow(x, n)
+//	if v < lim {
+//		return v
+//	} else {
+//		fmt.Printf("%g > %g\n", v, lim) // вывод v и lim через %g. %g используется для типа float
+//	}
+//	return lim
+//}
 
-func needInt(x int) int { return x*10 + 1 }
-func needFloat(x float64) float64 {
-	return x * 0.1
-}
-
-func sqrt(x float64) string {
-	if x < 0 {
-		return sqrt(-x) + "i"
+func Sqrt(x float64) float64 { //вычисление z -= (z*z - x) / (2*z), поиск максимального приближения квадрата Z к X
+	z := float64(x / 5)
+	i := 0
+	for {
+		i++
+		z -= (z*z - x) / (2 * z)
+		fmt.Println("Попытка :", i, "", z)
+		if z == math.Sqrt(x) {
+			break
+		}
 	}
-	return fmt.Sprint(math.Sqrt(x))
-}
-
-func pow(x, n, lim float64) float64 {
-	v := math.Pow(x, n)
-	if v < lim {
-		return v
-	} else {
-		fmt.Printf("%g > %g\n", v, lim) // вывод v и lim через %g. %g используется для типа float
-	}
-	return lim
+	return z
 }
