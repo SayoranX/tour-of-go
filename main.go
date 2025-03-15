@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
-	"runtime"
+	"time"
 	//"math/rand"
 	//"math/cmplx"
 )
@@ -85,19 +85,32 @@ func main() {
 	//
 	//fmt.Println(pow(4, 2, 10), pow(3, 3, 20))
 
-	fmt.Println("Наша функция: ", Sqrt(3))
-	fmt.Println("Функция квадратного корня: ", math.Sqrt(3))
-
-	fmt.Println("Go runs on ") // вывод текущей операционной системы, OS переменная которая работает только внутри switch,используется доля кросс-платформенного кода, где поведение зависит от ОС
-	switch os := runtime.GOOS; os {
-	case "darwin":
-		fmt.Println("OS X. ")
-	case "linux":
-		fmt.Println("Linux. ")
+	//fmt.Println("Наша функция: ", Sqrt(3))
+	//fmt.Println("Функция квадратного корня: ", math.Sqrt(3))
+	//
+	//fmt.Println("Go runs on ") // вывод текущей операционной системы, OS переменная которая работает только внутри switch,используется доля кросс-платформенного кода, где поведение зависит от ОС
+	//switch os := runtime.GOOS; os {
+	//case "darwin":
+	//	fmt.Println("OS X. ")
+	//case "linux":
+	//	fmt.Println("Linux. ")
+	//default:
+	//	// freebsd, open bsd
+	//	// plan9, Windows...
+	//	fmt.Printf("%s.\n", os) // %s выводит строковый тип данных
+	//}
+	fmt.Println("When's Saturday?") // выводит сообщение сколько дней относительно сегодня до указанного дня
+	today := time.Now().Weekday()
+	fmt.Println(today)
+	switch time.Tuesday {
+	case today + 0:
+		fmt.Println("Today. ")
+	case today + 1:
+		fmt.Println("Tomorrow. ")
+	case today + 2:
+		fmt.Println("In two days. ")
 	default:
-		// freebsd, open bsd
-		// plan9, Windows...
-		fmt.Printf("%s.\n", os) // %s выводит строковый тип данных
+		fmt.Println("Too far away. ")
 	}
 }
 
